@@ -8,7 +8,6 @@ MvcWebApp is a simple ASP.NET Core MVC web application designed to log and displ
 - **MongoDB Integration**: Utilizes MongoDB for storing and retrieving logs.
 - **Log Management**: Retains only the 5 most recent logs by deleting the oldest entry when a new one is added.
 - **Navigation**: Easy navigation between **Home** and **View Log** pages.
-- **PC-Optimized UI**: Clean and responsive design tailored for desktop viewing using Bootstrap.
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, Bootstrap
@@ -16,39 +15,10 @@ MvcWebApp is a simple ASP.NET Core MVC web application designed to log and displ
 - **Database**: MongoDB
 - **Tools**: Visual Studio, MongoDB.Driver
 
-## Getting Started
-
 ### Prerequisites
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - [MongoDB](https://www.mongodb.com/try/download/community)
-
-### Installation
-1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/your-username/MvcWebApp.git
-   cd MvcWebApp
-   ```
-
-2. **Configure MongoDB**:
-   - Ensure MongoDB is running locally on the default port `27017`.
-   - The default database name is `UserLogsDB` with a collection named `UserLogs`.
-
-3. **Update appsettings.json**:
-   Make sure your MongoDB connection string is correct:
-   ```json
-   "MongoDbSettings": {
-     "ConnectionString": "mongodb://localhost:27017",
-     "DatabaseName": "UserLogsDB",
-     "CollectionName": "UserLogs"
-   }
-   ```
-
-4. **Restore Packages and Run the App**:
-   ```sh
-   dotnet restore
-   dotnet run
-   ```
 
 ### Usage
 1. Visit the Home page to automatically log your visit.
