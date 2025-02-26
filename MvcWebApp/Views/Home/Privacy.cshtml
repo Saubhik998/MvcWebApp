@@ -1,0 +1,40 @@
+﻿@model List<MvcMongoApp.Models.UserLog>
+
+@{
+    ViewData["Title"] = "Privacy Page";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Privacy Page</h1>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Date & Time</th>
+                    <th>IP Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var log in Model)
+                {
+                    <tr>
+                        <td>@log.VisitDateTime.ToLocalTime()</td>
+                        <td>@log.IpAddress</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-center">No visit records found.</p>
+    }
+
+    <div class="text-center mt-3">
+        <button onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-primary">
+            Return to Home
+        </button>
+    </div>
+</div>
