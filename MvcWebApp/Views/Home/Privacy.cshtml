@@ -1,39 +1,46 @@
-﻿@model List<MvcMongoApp.Models.UserLog>
+﻿
+<!--Privacy has been updated-->
+
+@model List<MvcMongoApp.Models.UserLog>
 
 @{
-    ViewData["Title"] = "Privacy Page";
+    ViewData["Title"] = "Logs Page";
 }
 
 <div class="container mt-5">
-    <h1 class="display-4 text-center">Privacy Page</h1>
+    <h1 class="display-4 text-center text-primary">Logs Page</h1>
 
     @if (Model != null && Model.Count > 0)
     {
-        <table class="table table-bordered mt-3">
-            <thead class="table-dark">
-                <tr>
-                    <th>Date & Time</th>
-                    <th>IP Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var log in Model)
-                {
+        <div class="table-responsive">
+            <table class="table table-hover table-striped mt-4 shadow-sm rounded-3">
+                <thead class="table-primary">
                     <tr>
-                        <td>@log.VisitDateTime.ToLocalTime()</td>
-                        <td>@log.IpAddress</td>
+                        <th>Date & Time</th>
+                        <th>IP Address</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var log in Model)
+                    {
+                        <tr>
+                            <td>@log.VisitDateTime.ToLocalTime().ToString("dd-MM-yyyy HH:mm:ss")</td>
+                            <td>@log.IpAddress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
     else
     {
-        <p class="text-center">No visit records found.</p>
+        <div class="alert alert-warning text-center" role="alert">
+            No visit records found.
+        </div>
     }
 
     <div class="text-center mt-3">
-        <button onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-primary">
+        <button onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-outline-primary">
             Return to Home
         </button>
     </div>
